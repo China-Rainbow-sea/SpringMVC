@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h1>首页</h1>
+<a th:href="@{/user/detail}">用户详情</a>
+<a th:href="@{/product/detail}">商品详情</a>
+<br>
+
+<!--测试 RequestMapping 注解的 value 值-->
+<h2>测试 RequestMapping 注解的 value 值-</h2>
+<a th:href="@{/testvalue1}">RequestMapping 注解的 Value 属性1</a>
+<a th:href="@{/testvalue2}">RequestMapping 注解的 Value 属性2</a>
+
+<br>
+
+<form th:action="@{/user/login}" method="post">
+    用户名: <input type="text" name="username" /><br>
+    密码:<input type="password" name="password" \><br>
+    <input type="submit" value="登录">
+</form>
+<br>
+
+<!--测试 RequestMapping 注解的 params 的值-->
+<!--发送请求： /testParams，并且携带参数 username，password-->
+<a th:href="@{testParams?username=admin&password=123}">测试RequestMapping 注解的 params 属性</a><br>
+<!--注意：单双引号交替使用-->
+<a th:href="@{testParams(username='admin',password='123')}">测试RequestMapping 注解的 params 属性2</a>
+<br><br><br>
+
+
+<!--测试 RequestMapping 注解的 headers 属性-->
+<a th:href="@{/testHeaders}">测试 RequestMapping注解的headers 属性</a>
+
+</body>
+</html>
