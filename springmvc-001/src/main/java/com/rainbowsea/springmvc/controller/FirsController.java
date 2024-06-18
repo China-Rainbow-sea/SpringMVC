@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller // 该注解表示,将该类交给 Spring IOC 容器管理
 public class FirsController {
-
-
     // 请求映射
     // 这个方法是一个实例方法
     // 这个方法目前返回一个String 字符串
@@ -20,12 +18,32 @@ public class FirsController {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @RequestMapping(value = "/heihei")
     public String haha() {
         // 处理核心业务
         // 返回一个逻辑视图名称
         return "other";
     }
+
+
+
 
 
 

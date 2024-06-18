@@ -8,6 +8,8 @@
 
 <!--    组件扫描-->
     <context:component-scan base-package="com.rainbowsea.springmvc.controller"></context:component-scan>
+
+
     <!--视图解析器-->
     <bean id="thymeleafViewResolver" class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
         <!--作用于视图渲染的过程中，可以设置视图渲染后输出时采用的编码字符集-->
