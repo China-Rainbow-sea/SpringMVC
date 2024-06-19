@@ -18,6 +18,21 @@ public class IndexController {
         return "index";
     }
 
+    // 当前端发送的请求路径是：/user/login ，并且发送的请求方式是以POST方式请求的，则可以正常映射
+    // 当前端发送的请求路径不是：/user/login ，就算请求方式是以POST方式请求的，也不会映射到这个方法上
+    // 当前端发送的请求路径是：/user/login ，请求方式是以get方式请求的，也不会映射到这个方法上
+    @RequestMapping(value = "/login",method = {RequestMethod.POST})
+    public String userLogin() {
+        System.out.println("处理登陆的业务...");
+        return "ok";
+    }
+    // Method 'GET' is not supported.
+
+
+
+
+
+
 
 
     // 对于注解来说，如果是一个数组，数组中只有一个元素，大括号是可以省略的
@@ -62,23 +77,13 @@ public class IndexController {
 
 
 
-    // 当前端发送的请求路径是：/user/login ，并且发送的请求方式是以POST方式请求的，则可以正常映射
-    // 当前端发送的请求路径不是：/user/login ，就算请求方式是以POST方式请求的，也不会映射到这个方法上
-    // 当前端发送的请求路径是：/user/login ，请求方式是以get方式请求的，也不会映射到这个方法上
-/*    @RequestMapping(value = "/user/login",method = {RequestMethod.POST})
-    public String userLogin() {
-        System.out.println("处理登陆的业务...");
-        return "ok";
-    }*/
-    // Method 'GET' is not supported.
-
 
     @PostMapping(value = "/user/login")
     //@GetMapping(value = "/user/login")
-    public String userLogin() {
+/*    public String userLogin() {
         System.out.println("处理登陆的业务...");
         return "ok";
-    }
+    }*/
 
 
     // 当RequestMapping 注解当中条件了 params ，则表示添加了新的约束条件
