@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试三个对象</title>
+</head>
+<body>
+<h1>测试三个域对象</h1>
+<hr>
+<h2>测试 request 域对象</h2>
+<a th:href="@{/testServletAPI}">测试在SpringMVC当中使用原生 Servlet API 完成 request 域的数据共享</a>
+<br>
+<a th:href="@{/testModel}">测试在 Spring MVC 当中使用 Model 接口完成 request 域数据共享</a>
+<br>
+<a th:href="@{/testMap}">测试在Spring MVC 当中使用 Map 接口完成 request 域数据共享</a>
+<br>
+<a th:href="@{/testModelMap}">测试在Spring MVC当中使用 ModelMap 类完成 request 域数据共享</a>
+<br>
+<a th:href="@{/testModelAndView}">测试在Spring MVC当中使用 ModelAndView 类完成 request 域数据共享</a>
+<br>
+<h2>测试Session域对象</h2>
+<a th:href="@{/testSessionServletAPI}">测试在Spring MVC当中使用 Servlet API 完成 session 域数据共享</a>
+<br>
+<a th:href="@{/testSessionAttributes}">测试在Spring MVC 当中使用 @SessionAttributes 注解完成 session域数据共享</a>
+<br>
+<a th:href="@{/testApplicationScope}">测试在Spring MVC 当中使用 Servlet API 实现application域数据共享</a>
+</body>
+</html>
