@@ -6,6 +6,7 @@
     <file type="web" url="file://$PROJECT_DIR$/springmvc-002" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc-003" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc-003-blog" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvc-004" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -14,10 +15,11 @@
         <option value="$PROJECT_DIR$/springmvc-002/pom.xml" />
         <option value="$PROJECT_DIR$/springmvc-003/pom.xml" />
         <option value="$PROJECT_DIR$/springmvc-003-blog/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc-004/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

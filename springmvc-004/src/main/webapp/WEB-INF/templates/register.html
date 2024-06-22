@@ -25,5 +25,14 @@
     <input type="submit" value="注册">
 </form>
 
+<script type="text/javascript">
+    function sendCookie(){
+        document.cookie = "id=123456789; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/";
+        document.location = "/springmvc/user/reg";
+    }
+</script>
+<!--发送的是 get 请求-->
+<button onclick="sendCookie()">向服务器端发送Cookie</button>
+
 </body>
 </html>
