@@ -53,7 +53,7 @@ SpringMVC 框架会自动将 Tomcat 服务器创建 request 对象传递给处�
 > 
 
 4. 第四种方式，使用POJO类/javaBean 接收请求参数（这是最常用的）
-> 底层是原理：反射机制
+> ~~底层是原理：反射机制
 > 不过，使用着这种方式的前提是，POJO类的属性名必须和请求参数的参数名保持一致
 > 实现原理？
 >   前端提交了一个请求，参数名是：username，那么要求POJO类当中必须有一个属性名也叫做：username
@@ -69,7 +69,7 @@ SpringMVC 框架会自动将 Tomcat 服务器创建 request 对象传递给处�
 > 那么必须保证POJO类当中有一个方法名叫做：setUserName
 > 如果前端提交参数是：email=zhangsna@rainbowsea.com
 > 那么必须保证POJO类当中有一个方法名叫做：setEmail
-> 如果没有对应的set方法，将无法给对应的属性赋值。
+> 如果没有对应的set方法，将无法给对应的属性赋值。~~
 > 
 
 Spring MVc 当中向获取到请求头相关的信息
