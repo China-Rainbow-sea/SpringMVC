@@ -11,6 +11,17 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller // 交给 Spring IOC 容器管理
 public class SessionScopeTestController {
 
+    @RequestMapping(value = "/testSessionAttributes")
+    public String testSessionAttributes(ModelMap modelMap) {
+        // 处理业务
+        // 将数据存储到 Session域当中
+        modelMap.addAttribute("testSessionScope","在Spring MVC 当中使用@SessionAttributes 注解完成 session 域数据共享");
+        modelMap.addAttribute("x","李华");
+        modelMap.addAttribute("y","小红");
+        return "ok";
+    }
+
+
 
     @RequestMapping("/testSessionServletAPI")
     public String testServletAPI(HttpSession session) {
@@ -21,14 +32,4 @@ public class SessionScopeTestController {
         return "ok";
     }
 
-
-    @RequestMapping(value = "/testSessionAttributes")
-    public String testSessionAttributes(ModelMap modelMap) {
-        // 处理业务
-        // 将数据存储到 Session域当中
-        modelMap.addAttribute("testSessionScope","在Spring MVC 当中使用@SessionAttributes 注解完成 session 域数据共享");
-        modelMap.addAttribute("x","李华");
-        modelMap.addAttribute("y","小红");
-        return "ok";
-    }
 }

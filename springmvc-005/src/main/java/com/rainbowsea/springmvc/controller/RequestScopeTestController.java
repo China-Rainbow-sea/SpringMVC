@@ -14,8 +14,60 @@ import java.util.Map;
 public class RequestScopeTestController {
 
 
-    // request 请求域
 
+    @RequestMapping(value = "/testModelAndView")
+    public ModelAndView testModelAndView() {
+        // 创建模型视图对象
+        ModelAndView modelAndView = new ModelAndView();
+        // 给模型视图对象绑定数据
+        modelAndView.addObject("testRequestScope", "在SpringMVC当中使用 ModelAndView 类完成 request 域数据共享");
+
+        // 给模型视图对象 绑定视图（绑定逻辑视图名称）
+        modelAndView.setViewName("ok");
+
+        // 返回模型视图对象
+        return modelAndView;
+    }
+
+
+    @RequestMapping(value = "/testModelMap")
+    public String testModelMap(ModelMap modelMap) {
+        // 向 request 域当中存储数据
+        modelMap.addAttribute("testRequestScope", "在Spring MVC 当中 ModelMap类完成request 域数据共享");
+        System.out.println(modelMap);
+        System.out.println(modelMap.getClass().getName());
+        return "ok";
+    }
+
+    @RequestMapping(value = "/testMap")
+    public String testMap(Map<String, Object> map) {
+
+        // 向 request 域当中的存储数据
+        map.put("testRequestScope", "在Spring MVC 当中使用 Map接口完成 request 域数据共享");
+        System.out.println(map);
+        System.out.println(map.getClass().getName());
+        // 转发
+        return "ok";
+    }
+
+
+
+
+    @RequestMapping(value = "/testModel")
+    public String testModel(Model model) {
+        // 向 request 域当中绑定数据
+        model.addAttribute("testRequestScope", "在SpringMVC 当中使用 Model 接口完成 request 域数据共享");
+        System.out.println(model);
+        System.out.println(model.getClass().getName());
+        // 转发
+        return "ok";
+    }
+
+
+
+
+
+    // request 请求域
     @RequestMapping("/testServletAPI")
     public String testServletAPI(HttpServletRequest request) {
 
@@ -36,50 +88,19 @@ public class RequestScopeTestController {
     }
 
 
-    @RequestMapping(value = "/testModel")
-    public String testModel(Model model) {
-        // 向 request 域当中绑定数据
-        model.addAttribute("testRequestScope", "在SpringMVC 当中使用 Model 接口完成 request 域数据共享");
-        System.out.println(model);
-        System.out.println(model.getClass().getName());
-        // 转发
-        return "ok";
-    }
 
 
-    @RequestMapping(value = "/testMap")
-    public String testMap(Map<String, Object> map) {
-
-        // 向 request 域当中的存储数据
-        map.put("testRequestScope", "在Spring MVC 当中使用 Map接口完成 request 域数据共享");
-        System.out.println(map);
-        System.out.println(map.getClass().getName());
-        // 转发
-        return "ok";
-    }
 
 
-    @RequestMapping(value = "/testModelMap")
-    public String testModelMap(ModelMap modelMap) {
-        // 向 request 域当中存储数据
-        modelMap.addAttribute("testRequestScope", "在Spring MVC 当中 ModelMap类完成request 域数据共享");
-        System.out.println(modelMap);
-        System.out.println(modelMap.getClass().getName());
-        return "ok";
-    }
 
 
-    @RequestMapping(value = "/testModelAndView")
-    public ModelAndView testModelAndView() {
-        // 创建模型视图对象
-        ModelAndView modelAndView = new ModelAndView();
-        // 给模型视图对象绑定数据
-        modelAndView.addObject("testRequestScope", "在SpringMVC当中使用 ModelAndView 类完成 request 域数据共享");
 
-        // 给模型视图对象 绑定视图（绑定逻辑视图名称）
-        modelAndView.setViewName("ok");
 
-        // 返回模型视图对象
-        return modelAndView;
-    }
+
+
+
+
+
+
+
 }
