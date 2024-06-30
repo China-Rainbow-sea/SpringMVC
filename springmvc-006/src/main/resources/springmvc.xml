@@ -42,13 +42,26 @@
     </bean>
 
     <!--    配置视图的控制器,报红是，没有整个文件，ide的误报，这里是没有问题的-->
-    <mvc:view-controller path="/test2" view-name="test2"></mvc:view-controller>
+    <mvc:view-controller path="/test2" view-name="test2"/>
     <mvc:view-controller path="/" view-name="index" />
+
+
+<!--    开启默认的Servlet处理-->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+
+
+
+
+
+
+
+
+
+
+
     <!--    开启注解驱动-->
     <mvc:annotation-driven/>
 
-<!--    开启默认的Servlet处理-->
-<!--    <mvc:default-servlet-handler></mvc:default-servlet-handler>-->
 
 <!--    配置静态资源处理-->
     <mvc:resources mapping="/static/**" location="/static/"></mvc:resources>
