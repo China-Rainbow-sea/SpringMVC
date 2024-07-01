@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>测试 RESTFul 编程风格</h1>
+<hr>
+<!--RESTFul 编程风格，查看用列表-->
+<a th:href="@{/user}">查看用户列表</a> <br>
+
+
+<!--RESTFul 风格的，根据 id 查询用户信息-->
+<a th:href="@{/user/1}">查询id=1的这个用户信息</a><br>
+<!--RESTFul 风格的，新增用户信息，新增必须发送POST请求，需要使用 form 表单-->
+<form th:action="@{/user}" method="post">
+    用户名: <input type="text" name="username"><br>
+    密码:<input type="password" name="password"><br>
+    年龄: <input type="text" name="age"><br>
+    <input type="submit" value="保存">
+
+</form>
+<hr>
+<h2>修改</h2>
+<!-- RESTFul 风格的，修改用户信息，修改必须发送 put 请求，要发送 put 请求，首先必须是一个 Post 请求-->
+<form th:action="@{/user}" method="post">
+    <!--    隐藏域-->
+    <input type="hidden" name="_method" value="put">
+
+    用户名: <input type="text" name="username"><br>
+    密码:<input type="password" name="password"><br>
+    年龄: <input type="text" name="age"><br>
+    <input type="submit" value="修改">
+
+</form>
+
+<hr>
+<h2>删除用户</h2>
+
+<!--RESTful风格的，删除用户西悉尼-->
+<!--删除必须发送 DELETE 请求，和 PUT 请求实现方式相同-->
+<!--发送 DELETE 请求的前提是POST请求，并且需要通过隐藏域提交，_method="delete"-->
+<a th:href="@{user/120}" onclick="del(event)">删除用户id = 120 的用户信息</a>
+<form id="delForm" method="post">
+    <input type="hidden" name="_method" value="delete">
+</form>
+
+<script>
+    function del(event) {
+        // 获取表单
+        let delForm = document.getElementById("delForm");
+        // 给 form 的 action 赋值
+        delForm.action = event.target.href;
+        // 发送POST 请求提交表单
+        delForm.submit();
+        // 非常重要，你需要阻止超链接的默认行为
+        event.preventDefault();
+    }
+</script>
+</body>
+</html>
