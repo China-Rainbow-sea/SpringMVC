@@ -13,6 +13,14 @@
 
 <!--RESTFul 风格的，根据 id 查询用户信息-->
 <a th:href="@{/user/1}">查询id=1的这个用户信息</a><br>
+
+
+
+
+
+
+
+
 <!--RESTFul 风格的，新增用户信息，新增必须发送POST请求，需要使用 form 表单-->
 <form th:action="@{/user}" method="post">
     用户名: <input type="text" name="username"><br>
@@ -22,6 +30,10 @@
 
 </form>
 <hr>
+
+
+
+
 <h2>修改</h2>
 <!-- RESTFul 风格的，修改用户信息，修改必须发送 put 请求，要发送 put 请求，首先必须是一个 Post 请求-->
 <form th:action="@{/user}" method="post">
@@ -34,6 +46,11 @@
     <input type="submit" value="修改">
 
 </form>
+
+
+
+
+
 
 <hr>
 <h2>删除用户</h2>

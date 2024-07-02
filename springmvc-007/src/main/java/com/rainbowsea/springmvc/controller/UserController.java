@@ -10,12 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller  // 交给 Spring IOC 容器进行管理
 public class UserController {
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public String getAll() {
-        System.out.println("正在查询所有用户信息...");
-        return "ok";
-    }
-
 
     //@RequestMapping(value = "/user/{占位符}",method = RequestMethod.GET)
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
@@ -25,6 +19,21 @@ public class UserController {
         return "ok";
     }
 
+
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public String getAll() {
+        System.out.println("正在查询所有用户信息...");
+        return "ok";
+    }
+
+
+
+
+
+
+
+
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public String save(User user) {
         System.out.println("正在保存用户信息");
@@ -32,12 +41,22 @@ public class UserController {
         return "ok";
     }
 
+
+
+
+
+
+
+
+
     @RequestMapping(value = "/user", method = RequestMethod.PUT)
     public String modify(User user) {
         System.out.println("正在修改用户信息" + user);
 
         return "ok";
     }
+
+
 
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
