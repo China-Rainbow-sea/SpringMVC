@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script th:src="@{/static/js/vue3.4.21.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+</head>
+<body>
+<h1>使用 Vue3 + axios + Thymeleaf + SpringMVC 发送 AJAX 请求</h1>
+<hr>
+<a th:href="@{/user/1}">查找id = 1的用户信息</a>
+
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <button @click="getMessage">获取消息</button>
+</div>
+
+
+<form th:action="@{/save}" method="post">
+    用户名: <input type="text" name="username"><br>
+    密码: <input type="password" name="password"><br>
+    <input type="submit" value="保存">
+</form>
+
+<hr>
+<!--
+
+<script th:inline="javascript">
+    Vue.createApp({
+        data() {
+            return {
+                message: ''
+            }
+        },
+        methods: {
+            //异步方法(ajax请求多数情况下都是异步请求)
+            async getMessage() {
+                try {
+                    // 发送 ajax请求
+                    // await axios.get('/springmvc/ajax')
+                    //动态获取 应用的根/springmvc/
+                    const response = await axios.get([[@{/}]] + 'ajax')
+                        // 将返回的数据交给 message
+                        this.message = response.data
+                }catch
+                    (e)
+                    {
+                        console.error(e)
+                    }
+                }
+            }
+        }).mount("#app")
+</script>
+
+-->
+
+
+<script th:inline="javascript">
+
+    // 发送 ajax post 请求，并且在请求体当中提交json数据
+    // 注意：name ,password 要于对应将 json 转换为 Bean对象上的属性名一致
+    let jsonObj = {"name": "李华", "password": "123"}
+    Vue.createApp({
+        data() {
+            return {
+                message: ''
+            }
+        },
+        methods: {
+            //异步方法(ajax请求多数情况下都是异步请求)
+            async getMessage() {
+                console.log("sendjson")
+                try {
+                    // 发送 ajax请求
+                    // await axios.get('/springmvc/ajax')
+                    //动态获取 应用的根/springmvc/
+                    const response = await axios.post([[@{/}]] + 'save2',JSON.stringify(jsonObj),{
+                        headers
+                :
+                    {
+                        // 请求体的状态信息
+                        "Content-Type"
+                    :
+                        "application/json"
+                    }
+                })
+
+                    // 将返回的数据交给 message
+                    this.message = response.data
+                } catch
+                    (e) {
+                    console.error(e)
+                }
+            }
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>
