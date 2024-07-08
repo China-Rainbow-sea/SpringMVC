@@ -9,38 +9,7 @@
 <body>
 <h1>使用 Vue3 + axios + Thymeleaf + SpringMVC 发送 AJAX 请求</h1>
 <hr>
-<div id="app">
-    <h1>{{message}}</h1>
-    <button @click="getMessage">获取消息</button>
-</div>
-
-<script th:inline="javascript">
-    Vue.createApp({
-        data() {
-            return {
-                message: ''
-            }
-        },
-        methods: {
-            //异步方法(ajax请求多数情况下都是异步请求)
-            async getMessage() {
-                try {
-                    // 发送 ajax请求
-                    // await axios.get('/springmvc/ajax')
-                    //动态获取 应用的根/springmvc/
-                    const response = await axios.get([[@{/}]] + 'ajax')
-                        // 将返回的数据交给 message
-                        this.message = response.data
-                }catch
-                    (e)
-                    {
-                        console.error(e)
-                    }
-                }
-            }
-        }).mount("#app")
-</script>
-
+<a th:href="@{/user/1}">查找id = 1的用户信息</a>
 
 </body>
 </html>
