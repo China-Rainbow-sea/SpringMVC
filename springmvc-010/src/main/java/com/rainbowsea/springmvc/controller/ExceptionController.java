@@ -40,7 +40,7 @@ public class ExceptionController {
 
 
     //@ExceptionHandler
-    public String tip3 (Exception e, Model model) {
+    public String tip3 (NullPointerException e, Model model) {
 
         return null;
     }
