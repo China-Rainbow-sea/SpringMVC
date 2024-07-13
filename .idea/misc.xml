@@ -18,6 +18,7 @@
     <file type="web" url="file://$PROJECT_DIR$/springmvc-011" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc-annotation" />
     <file type="web" url="file://$PROJECT_DIR$/ssm-annotation" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm-annotation3" />
     <file type="web" url="file://$PROJECT_DIR$/usermgt" />
   </component>
   <component name="MavenProjectsManager">
@@ -40,6 +41,7 @@
         <option value="$PROJECT_DIR$/springmvc-011/pom.xml" />
         <option value="$PROJECT_DIR$/springmvc-annotation/pom.xml" />
         <option value="$PROJECT_DIR$/ssm-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm-annotation3/pom.xml" />
       </list>
     </option>
   </component>
